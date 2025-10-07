@@ -1,0 +1,31 @@
+# Example configuration for a hub network
+# Choose one of the following options:
+#    Option 1: Use IPAM for subnet allocation
+#    "ipam": { poolId: ipam-pool-xxxxxxxxxxxxx; mask: 24 }
+#    Option 2: Use CIDR for subnet allocation
+#    "cidr": "10.30.4.0/24;
+# Optional: Choose either specific Availability Zones or a number of maxAzs else we will default to 3
+#    "availabilityZones": ["us-east-2a"]
+# OR
+#    "maxAzs": 2
+# Optional: Long term Log  storage in S3
+#    "logArchiveBucketArn": arn:aws:s3:::org-log-archive-123456789012
+#    "logArchivePrefix": "network/hub/"
+# Optional: Tags
+#      Optional: Project name
+#        "project": "Network Phase";
+#      Optional: Environment name
+#        "environment": "NonProd";
+#      Optional: Owner name
+#        owner: "Enterprise Architecture";
+#      Optional: Other Tags
+#
+# Example config file
+{
+    ipam: { poolId: ipam-pool-xxxxxxxxxxxxx; mask: 24 }
+    availabilityZones: ["us-east-2a", "us-east-2b"]
+    tags: {
+        "environment": "Prod",
+        "cost-center": "12345",
+    }
+}
