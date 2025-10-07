@@ -15,7 +15,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Configuration Options
 
-in your config file you cna specify a few things; if you are using Amazon IPAM you can specify the pool id and mask `ipam: { poolId: ipam-pool-xxxxxxxxxxxxx; mask: 24 }` or you must specify a CIDR `cidr: "10.0.0.0/16"`. If your workload requires specific AZs such as Workspaces you can login to the AWS console and check the AZ mapping e.g [use1 -> us-east-1a], you can pass in `availabilityZones: ["us-east-2a", "us-east-2b"]`. If you do not need specific AZs you can can specify the number of AZs with `maxAzs: 2` if neither is specified we default to `3`. Finally you cna specify any nmber of tags as key:value pairs
+In your configuration file, you can define several options to control how your network stack is deployed. For IP addressing, you must choose between using Amazon IPAM or providing a static CIDR block. When using IPAM, specify the pool ID and mask, for example: `ipam: { poolId: ipam-pool-xxxxxxxxxxxxx, mask: 24 }`. If you are not using IPAM, you must define a CIDR such as `cidr: "10.0.0.0/16"`. For availability zone configuration, if your workload requires specific zones—for example, AWS WorkSpaces—you can look up the AZ mapping in the AWS Console (e.g., use1 -> us-east-1a) and provide them directly with `availabilityZones: ["us-east-2a", "us-east-2b"]`. If you do not need specific zones, you can instead specify the number of zones using `maxAzs: 2`, and if neither value is provided, the default of three zones will be used. Finally, you can include tags as key-value pairs to help identify and organize your resources, for example: `tags: { Project: "MyApp", Environment: "Prod", Owner: "John Doe" }`.
 
 config/file-{region}.json
 ```
